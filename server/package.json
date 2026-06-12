@@ -1,0 +1,9 @@
+﻿{
+  "name": "rov-relay-server",
+  "version": "1.0.0",
+  "description": "水下机器人 TCP ↔ WebSocket 中转服务（无外部依赖）",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

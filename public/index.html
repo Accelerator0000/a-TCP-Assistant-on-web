@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水下机器人 - 监控终端</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🤖 水下机器人监控终端</h1>
+    <span id="status-badge" class="status-offline">● 未连接</span>
+  </header>
+
+  <main>
+    <!-- 左侧：数据展示 -->
+    <section class="panel data-panel">
+      <div class="panel-header">
+        <h2>📡 实时数据</h2>
+        <button id="btn-clear" class="btn-clear">🗑️ 清除</button>
+      </div>
+      <div id="data-list" class="data-list">
+        <div class="placeholder">等待数据...</div>
+      </div>
+    </section>
+
+    <!-- 右侧：控制面板 -->
+    <section class="panel control-panel">
+      <h2>🎮 指令发送</h2>
+      <div class="cmd-group">
+        <label for="cmd-input">输入指令：</label>
+        <div class="cmd-row">
+          <input type="text" id="cmd-input" placeholder="例如: MOTOR F 100" />
+          <button id="cmd-send" class="btn-primary">发送</button>
+        </div>
+      </div>
+      <div class="cmd-group">
+        <label>快捷指令：</label>
+        <div class="quick-cmds">
+          <button class="btn-quick" data-cmd="MOTOR F 50">前进 50</button>
+          <button class="btn-quick" data-cmd="MOTOR B 50">后退 50</button>
+          <button class="btn-quick" data-cmd="MOTOR L 50">左转 50</button>
+          <button class="btn-quick" data-cmd="MOTOR R 50">右转 50</button>
+          <button class="btn-quick" data-cmd="MOTOR STOP">停止</button>
+          <button class="btn-quick" data-cmd="LIGHT ON">灯光 开</button>
+          <button class="btn-quick" data-cmd="LIGHT OFF">灯光 关</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>STM32: 192.168.1.55 → 192.168.1.100:8888</span>
+    <span id="connection-info">WebSocket: 未连接</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

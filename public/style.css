@@ -1,0 +1,215 @@
+﻿/* ── 全局 ───────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0b1120;
+  color: #e0e6f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── 头部 ────────────────────────────────────────────── */
+header {
+  background: #141c2b;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1f2a3f;
+}
+
+header h1 { font-size: 20px; font-weight: 600; }
+
+.status-offline { color: #f87171; }
+.status-online  { color: #4ade80; }
+.status-busy    { color: #fbbf24; }
+
+#status-badge {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── 主体 ────────────────────────────────────────────── */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 16px;
+  padding: 16px 32px;
+}
+
+.panel {
+  background: #141c2b;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #1f2a3f;
+}
+
+.panel h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #94a3b8;
+}
+
+/* ── 面板标题行 ──────────────────────────────────────── */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.panel-header h2 {
+  margin-bottom: 0;
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #94a3b8;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-clear:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+/* ── 数据列表 ─────────────────────────────────────────── */
+.data-list {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.data-list .placeholder {
+  color: #475569;
+  font-style: italic;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.data-item {
+  padding: 8px 12px;
+  background: #1a2335;
+  border-radius: 6px;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 13px;
+  color: #cbd5e1;
+  animation: fadeIn 0.2s ease;
+}
+
+.data-item:hover {
+  background: #1e2940;
+}
+
+.data-item .timestamp {
+  color: #64748b;
+  margin-right: 10px;
+  font-size: 11px;
+}
+
+/* ── 控制面板 ─────────────────────────────────────────── */
+.cmd-group {
+  margin-bottom: 16px;
+}
+
+.cmd-group label {
+  display: block;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.cmd-row {
+  display: flex;
+  gap: 8px;
+}
+
+#cmd-input {
+  flex: 1;
+  background: #0d1424;
+  border: 1px solid #1f2a3f;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #e0e6f0;
+  font-size: 14px;
+  outline: none;
+  font-family: 'Cascadia Code', monospace;
+}
+
+#cmd-input:focus {
+  border-color: #3b82f6;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover { background: #1d4ed8; }
+
+.quick-cmds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-quick {
+  background: #1a2335;
+  color: #cbd5e1;
+  border: 1px solid #2a3a54;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-quick:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+/* ── 页脚 ────────────────────────────────────────────── */
+footer {
+  background: #141c2b;
+  padding: 10px 32px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #475569;
+  border-top: 1px solid #1f2a3f;
+}
+
+/* ── 动画 ────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 滚动条 ──────────────────────────────────────────── */
+.data-list::-webkit-scrollbar { width: 4px; }
+.data-list::-webkit-scrollbar-track { background: transparent; }
+.data-list::-webkit-scrollbar-thumb { background: #2a3a54; border-radius: 4px; }
