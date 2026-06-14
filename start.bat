@@ -1,0 +1,17 @@
+@echo off
+cd /d "%~dp0server"
+echo ========================================
+echo   ????? - ??????
+echo ========================================
+echo.
+echo ?????: http://localhost:8080
+echo.
+echo ????...
+echo.
+node index.js
+if errorlevel 1 (
+    echo.
+    echo ???????? Node.js ???
+    echo ??: https://nodejs.org
+)
+pause

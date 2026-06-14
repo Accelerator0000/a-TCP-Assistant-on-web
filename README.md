@@ -77,3 +77,20 @@ node index.js
 - [ ] 模块化指令发送面板
 - [ ] 数据记录/回放
 - [ ] 多页面/多视图切换
+
+---
+
+## 启动方式
+
+### 启动中转服务
+
+**方法一（推荐）**：双击 \start.bat\
+
+**方法二**：命令行运行
+
+`powershell
+cd server
+node index.js
+`
+
+然后浏览器打开 http://localhost:8080
